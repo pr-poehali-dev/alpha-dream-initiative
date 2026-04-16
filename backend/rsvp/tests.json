@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST valid RSVP yes",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест Гость", "attending": "yes", "guests": 2},
+      "expectedStatus": 200
+    },
+    {
+      "name": "GET list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}

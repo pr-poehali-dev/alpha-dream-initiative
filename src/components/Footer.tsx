@@ -26,15 +26,6 @@ export default function Footer() {
                 >
                   Сергей: +7 963 466-66-34
                 </a>
-                <a
-                  href="mailto:sergey.aleksandra@wed.ru"
-                  className="text-sm sm:text-base transition-colors duration-300"
-                  style={{ color: '#d6eaf5' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#7ab3cc')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#d6eaf5')}
-                >
-                  sergey.aleksandra@wed.ru
-                </a>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
