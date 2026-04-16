@@ -24,7 +24,8 @@ export default function Featured() {
           </div>
           <div>
             <p className="text-xs uppercase tracking-widest mb-1" style={{ color: '#5b8fa8' }}>Место</p>
-            <p className="text-lg font-medium" style={{ color: '#2c3e50' }}>«Берёзовая роща»</p>
+            <p className="text-lg font-medium" style={{ color: '#2c3e50' }}>«Берёзовая роща», оз. Касарги</p>
+            <p className="text-sm" style={{ color: '#5b8fa8' }}>Сосновский р-н, Челябинская обл.</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-widest mb-1" style={{ color: '#5b8fa8' }}>Дресс-код</p>

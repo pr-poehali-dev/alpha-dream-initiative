@@ -13,7 +13,8 @@ export default function Footer() {
                 <h3 className="mb-1 sm:mb-2 uppercase text-xs sm:text-sm tracking-widest" style={{ color: '#7ab3cc' }}>Детали</h3>
                 <p className="text-sm sm:text-base" style={{ color: '#d6eaf5' }}>29 августа 2026</p>
                 <p className="text-sm sm:text-base" style={{ color: '#d6eaf5' }}>Начало в 15:00</p>
-                <p className="text-sm sm:text-base" style={{ color: '#d6eaf5' }}>База отдыха «Берёзовая роща»</p>
+                <p className="text-sm sm:text-base" style={{ color: '#d6eaf5' }}>«Берёзовая роща», оз. Касарги</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#7ab3cc' }}>Сосновский р-н, Челябинская обл.</p>
               </div>
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-xs sm:text-sm tracking-widest" style={{ color: '#7ab3cc' }}>Связаться</h3>
