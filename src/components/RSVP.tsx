@@ -6,6 +6,7 @@ export default function RSVP() {
   const [name, setName] = useState("");
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
   const [guests, setGuests] = useState("1");
+  const [overnight, setOvernight] = useState<"yes" | "no" | "">("");
   const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -16,7 +17,7 @@ export default function RSVP() {
       const res = await fetch("https://functions.poehali.dev/1c472110-b453-4ad9-9eac-46f73520823f", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, attending, guests: attending === "yes" ? Number(guests) : 0 }),
+        body: JSON.stringify({ name, attending, guests: attending === "yes" ? Number(guests) : 0, overnight: attending === "yes" ? overnight : "no" }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
@@ -84,18 +85,41 @@ export default function RSVP() {
             </div>
 
             {attending === "yes" && (
-              <div>
-                <label className="block text-xs uppercase tracking-widest mb-2" style={{ color: "#5b8fa8" }}>Количество гостей (включая вас)</label>
-                <select
-                  value={guests}
-                  onChange={e => setGuests(e.target.value)}
-                  style={{ ...inputStyle, cursor: "pointer" }}
-                >
-                  {[1, 2, 3, 4].map(n => (
-                    <option key={n} value={n} style={{ backgroundColor: "#f0f4f8", color: "#2c3e50" }}>{n}</option>
-                  ))}
-                </select>
-              </div>
+              <>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest mb-2" style={{ color: "#5b8fa8" }}>Количество гостей (включая вас)</label>
+                  <select
+                    value={guests}
+                    onChange={e => setGuests(e.target.value)}
+                    style={{ ...inputStyle, cursor: "pointer" }}
+                  >
+                    {[1, 2, 3, 4].map(n => (
+                      <option key={n} value={n} style={{ backgroundColor: "#f0f4f8", color: "#2c3e50" }}>{n}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase tracking-widest mb-3" style={{ color: "#5b8fa8" }}>Останетесь с ночёвкой?</label>
+                  <div className="flex gap-4">
+                    {(["yes", "no"] as const).map(val => (
+                      <button
+                        key={val}
+                        type="button"
+                        onClick={() => setOvernight(val)}
+                        className="flex-1 py-3 text-sm uppercase tracking-widest border transition-all duration-300"
+                        style={{
+                          borderColor: "#5b8fa8",
+                          backgroundColor: overnight === val ? "#5b8fa8" : "transparent",
+                          color: overnight === val ? "#ffffff" : "#5b8fa8",
+                        }}
+                      >
+                        {val === "yes" ? "Да" : "Нет"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </>
             )}
 
             {status === "error" && (

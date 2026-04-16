@@ -18,6 +18,7 @@ def handler(event: dict, context) -> dict:
         name = body.get("name", "").strip()
         attending = body.get("attending")
         guests = int(body.get("guests", 0))
+        overnight = body.get("overnight", "no") == "yes"
 
         if not name or attending not in ("yes", "no"):
             return {"statusCode": 400, "headers": cors, "body": json.dumps({"error": "Неверные данные"})}
@@ -25,8 +26,8 @@ def handler(event: dict, context) -> dict:
         conn = psycopg2.connect(os.environ["DATABASE_URL"])
         cur = conn.cursor()
         cur.execute(
-            "INSERT INTO rsvp (name, attending, guests) VALUES (%s, %s, %s)",
-            (name, attending == "yes", guests)
+            "INSERT INTO rsvp (name, attending, guests, overnight) VALUES (%s, %s, %s, %s)",
+            (name, attending == "yes", guests, overnight)
         )
         conn.commit()
         cur.close()
@@ -37,8 +38,8 @@ def handler(event: dict, context) -> dict:
     if event.get("httpMethod") == "GET":
         conn = psycopg2.connect(os.environ["DATABASE_URL"])
         cur = conn.cursor()
-        cur.execute("SELECT name, attending, guests, created_at FROM rsvp ORDER BY created_at DESC")
-        rows = [{"name": r[0], "attending": r[1], "guests": r[2], "created_at": str(r[3])} for r in cur.fetchall()]
+        cur.execute("SELECT name, attending, guests, overnight, created_at FROM rsvp ORDER BY created_at DESC")
+        rows = [{"name": r[0], "attending": r[1], "guests": r[2], "overnight": r[3], "created_at": str(r[4])} for r in cur.fetchall()]
         cur.close()
         conn.close()
         return {"statusCode": 200, "headers": cors, "body": json.dumps(rows, ensure_ascii=False)}
