@@ -28,7 +28,7 @@ export default function Hero() {
 
       <div className="relative z-10 text-center text-white px-6">
         <p className="text-sm md:text-base uppercase tracking-[0.4em] mb-6 opacity-80 font-light">
-          Мы женимся
+          У нас свадьба
         </p>
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
           Сергей<br />&<br />Александра
