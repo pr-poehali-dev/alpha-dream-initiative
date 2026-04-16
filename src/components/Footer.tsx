@@ -18,13 +18,13 @@ export default function Footer() {
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-xs sm:text-sm tracking-widest" style={{ color: '#7ab3cc' }}>Связаться</h3>
                 <a
-                  href="tel:+79001234567"
+                  href="tel:+79634666634"
                   className="text-sm sm:text-base transition-colors duration-300"
                   style={{ color: '#d6eaf5' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#7ab3cc')}
                   onMouseLeave={e => (e.currentTarget.style.color = '#d6eaf5')}
                 >
-                  +7 900 123-45-67
+                  Сергей: +7 963 466-66-34
                 </a>
                 <a
                   href="mailto:sergey.aleksandra@wed.ru"
