@@ -22,7 +22,7 @@ export default function Featured() {
           </div>
           <div>
             <p className="text-xs uppercase tracking-widest mb-1" style={{ color: '#5b8fa8' }}>Дресс-код</p>
-            <p className="text-lg font-medium" style={{ color: '#2c3e50' }}>Светлые тона</p>
+            <p className="text-lg font-medium" style={{ color: '#2c3e50' }}>Небесно-голубой</p>
           </div>
         </div>
         <a
