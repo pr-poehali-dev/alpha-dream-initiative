@@ -30,9 +30,14 @@ export default function Promo() {
         29 · 08 · 2026
       </h3>
 
-      <p className="absolute bottom-12 right-6 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl z-10 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-        Этот день будет особенным. Мы хотим разделить его с теми, кто важен нам больше всего.
-      </p>
+      <div className="absolute bottom-12 right-6 left-6 z-10 flex flex-col gap-6 sm:left-auto">
+        <p className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+          Этот день будет особенным. Мы хотим разделить его с теми, кто важен нам больше всего.
+        </p>
+        <p className="text-white text-sm sm:text-base md:text-lg max-w-xs sm:max-w-md opacity-90 leading-relaxed font-light">
+          Живые цветы прекрасны, но недолговечны. Мы будем признательны, если Вы подарите вместо них сертификаты.
+        </p>
+      </div>
     </div>
   );
 }
