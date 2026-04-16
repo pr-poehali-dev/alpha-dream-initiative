@@ -19,7 +19,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full"
       >
         <img
-          src="https://cdn.poehali.dev/files/8eecedb4-134b-4c37-bb34-7cf22d4d024c.png"
+          src="https://cdn.poehali.dev/files/e84c2584-c055-4413-b62e-b92bdd967b61.png"
           alt="Сергей и Александра"
           className="w-full h-full object-cover"
         />
