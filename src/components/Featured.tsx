@@ -25,6 +25,33 @@ export default function Featured() {
             <p className="text-lg font-medium" style={{ color: '#2c3e50' }}>Небесно-голубой</p>
           </div>
         </div>
+
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#5b8fa8' }}>Примеры дресс-кода</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <div className="h-64 overflow-hidden rounded mb-2">
+                <img
+                  src="https://cdn.poehali.dev/projects/874a15de-41fa-45bd-9249-d2c9222f707b/files/43858615-9d97-4f5a-8901-23d2f3bc54d1.jpg"
+                  alt="Дресс-код для женщин"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-center" style={{ color: '#5b8fa8' }}>Для женщин</p>
+            </div>
+            <div>
+              <div className="h-64 overflow-hidden rounded mb-2">
+                <img
+                  src="https://cdn.poehali.dev/projects/874a15de-41fa-45bd-9249-d2c9222f707b/files/81f64fa7-808a-452a-b7f7-875be0720329.jpg"
+                  alt="Дресс-код для мужчин"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-center" style={{ color: '#5b8fa8' }}>Для мужчин</p>
+            </div>
+          </div>
+        </div>
+
         <div className="flex flex-wrap gap-4">
           <a
             href="#rsvp-form"
