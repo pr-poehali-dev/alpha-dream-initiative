@@ -6,6 +6,7 @@ export default function RSVP() {
   const [name, setName] = useState("");
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
   const [guests, setGuests] = useState("1");
+  const [withPartner, setWithPartner] = useState<"alone" | "couple" | "">("");
   const [overnight, setOvernight] = useState<"yes" | "no" | "">("");
   const [status, setStatus] = useState<Status>("idle");
 
@@ -17,7 +18,7 @@ export default function RSVP() {
       const res = await fetch("https://functions.poehali.dev/1c472110-b453-4ad9-9eac-46f73520823f", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, attending, guests: attending === "yes" ? Number(guests) : 0, overnight: attending === "yes" ? overnight : "no" }),
+        body: JSON.stringify({ name, attending, guests: attending === "yes" ? (withPartner === "couple" ? 2 : 1) : 0, with_partner: attending === "yes" ? withPartner === "couple" : false, overnight: attending === "yes" ? overnight : "no" }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
@@ -87,16 +88,24 @@ export default function RSVP() {
             {attending === "yes" && (
               <>
                 <div>
-                  <label className="block text-xs uppercase tracking-widest mb-2" style={{ color: "#5b8fa8" }}>Количество гостей (включая вас)</label>
-                  <select
-                    value={guests}
-                    onChange={e => setGuests(e.target.value)}
-                    style={{ ...inputStyle, cursor: "pointer" }}
-                  >
-                    {[1, 2, 3, 4].map(n => (
-                      <option key={n} value={n} style={{ backgroundColor: "#f0f4f8", color: "#2c3e50" }}>{n}</option>
+                  <label className="block text-xs uppercase tracking-widest mb-3" style={{ color: "#5b8fa8" }}>Вы придёте один(а) или с парой?</label>
+                  <div className="flex gap-4">
+                    {(["alone", "couple"] as const).map(val => (
+                      <button
+                        key={val}
+                        type="button"
+                        onClick={() => setWithPartner(val)}
+                        className="flex-1 py-3 text-sm uppercase tracking-widest border transition-all duration-300"
+                        style={{
+                          borderColor: "#5b8fa8",
+                          backgroundColor: withPartner === val ? "#5b8fa8" : "transparent",
+                          color: withPartner === val ? "#ffffff" : "#5b8fa8",
+                        }}
+                      >
+                        {val === "alone" ? "Один(а)" : "С парой"}
+                      </button>
                     ))}
-                  </select>
+                  </div>
                 </div>
 
                 <div>

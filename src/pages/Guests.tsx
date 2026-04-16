@@ -5,6 +5,7 @@ interface Guest {
   attending: boolean;
   guests: number;
   overnight: boolean;
+  with_partner: boolean;
   created_at: string;
 }
 
@@ -65,9 +66,15 @@ export default function Guests() {
                       style={{ borderBottom: i < coming.length - 1 ? "1px solid #e8f0f5" : "none" }}
                     >
                       <span className="text-base" style={{ color: "#2c3e50" }}>{g.name}</span>
-                      <div className="flex items-center gap-4">
-                        <span className="text-sm" style={{ color: "#5b8fa8" }}>
-                          {g.guests} {g.guests === 1 ? "чел." : "чел."}
+                      <div className="flex items-center gap-2 flex-wrap justify-end">
+                        <span
+                          className="text-xs px-2 py-1 rounded"
+                          style={{
+                            backgroundColor: g.with_partner ? "#e8f5e9" : "#f0f4f8",
+                            color: g.with_partner ? "#2e7d32" : "#9ab0bf",
+                          }}
+                        >
+                          {g.with_partner ? "С парой" : "Один(а)"}
                         </span>
                         <span
                           className="text-xs px-2 py-1 rounded"
