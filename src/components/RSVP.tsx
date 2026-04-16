@@ -29,7 +29,7 @@ export default function RSVP() {
   const inputStyle = {
     backgroundColor: "transparent",
     borderBottom: "1px solid rgba(122,179,204,0.5)",
-    color: "#d6eaf5",
+    color: "#1a1a1a",
     outline: "none",
     width: "100%",
     padding: "8px 0",
