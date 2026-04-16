@@ -25,21 +25,40 @@ export default function Featured() {
             <p className="text-lg font-medium" style={{ color: '#2c3e50' }}>Небесно-голубой</p>
           </div>
         </div>
-        <a
-          href="#rsvp-form"
-          className="border px-6 py-3 text-sm transition-all duration-300 w-fit uppercase tracking-widest"
-          style={{ borderColor: '#5b8fa8', color: '#5b8fa8' }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#5b8fa8';
-            (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff';
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
-            (e.currentTarget as HTMLAnchorElement).style.color = '#5b8fa8';
-          }}
-        >
-          Подтвердить участие
-        </a>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="#rsvp-form"
+            className="border px-6 py-3 text-sm transition-all duration-300 w-fit uppercase tracking-widest"
+            style={{ borderColor: '#5b8fa8', color: '#5b8fa8' }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#5b8fa8';
+              (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
+              (e.currentTarget as HTMLAnchorElement).style.color = '#5b8fa8';
+            }}
+          >
+            Подтвердить участие
+          </a>
+          <a
+            href="https://yandex.ru/maps/?text=озеро+Касарги+Берёзовая+роща+Сосновский+район"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border px-6 py-3 text-sm transition-all duration-300 w-fit uppercase tracking-widest"
+            style={{ borderColor: '#2c3e50', color: '#2c3e50' }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#2c3e50';
+              (e.currentTarget as HTMLAnchorElement).style.color = '#f0f4f8';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
+              (e.currentTarget as HTMLAnchorElement).style.color = '#2c3e50';
+            }}
+          >
+            Маршрут
+          </a>
+        </div>
       </div>
     </div>
   );
